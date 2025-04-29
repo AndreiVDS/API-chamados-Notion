@@ -3,21 +3,18 @@ import json
 import os
 from dotenv import load_dotenv
 
-# 🌿 Carrega variáveis de ambiente
 load_dotenv()
 
 MOVIDESK_API_TOKEN = os.getenv("MOVIDESK_API_TOKEN_TESTES")
 NOTION_API_TOKEN = os.getenv("NOTION_API_TOKEN_TESTES")
 NOTION_EQUIPAMENTOS_DB = os.getenv("NOTION_EQUIPAMENTOS_DB_TESTES")
 
-# Headers para o Notion
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_API_TOKEN}",
     "Content-Type": "application/json",
     "Notion-Version": "2022-06-28"
 }
 
-# 🎟️ Pega todos os chamados com ativos e status relevante, com paginação
 def get_tickets_movidesk():
     tickets = []
     skip = 0
@@ -58,7 +55,6 @@ def get_tickets_movidesk():
     print(f"📥 {len(tickets)} chamados válidos com ativos encontrados.")
     return tickets
 
-# 🧾 Obtém os equipamentos do Notion
 def get_equipamentos_notion():
     equipamentos = {}
     has_more = True
@@ -92,7 +88,6 @@ def get_equipamentos_notion():
     print(f"🧾 {len(equipamentos)} equipamentos carregados do Notion.")
     return equipamentos
 
-# 🔄 Atualiza o status no Notion
 def atualizar_status_equipamento(equipamentos_notion, ativos_ocupados_por_usuario):
     for nome, page_id in equipamentos_notion.items():
         if nome in ativos_ocupados_por_usuario:
@@ -120,7 +115,6 @@ def atualizar_status_equipamento(equipamentos_notion, ativos_ocupados_por_usuari
         else:
             print(f"❌ Erro ao atualizar {nome}: {response.status_code} - {response.text}")
 
-# 🔁 Processo completo
 def sync_equipamentos():
     print("\n🔁 Sincronizando equipamentos com chamados Movidesk...")
     tickets_movidesk = get_tickets_movidesk()
