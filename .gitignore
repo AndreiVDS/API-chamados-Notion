@@ -1,0 +1,11 @@
+# segredos
+.env
+
+# estado local do script
+chamados_notificados.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
