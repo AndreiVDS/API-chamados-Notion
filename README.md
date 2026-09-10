@@ -35,9 +35,10 @@ movidesk_notion/
   telegram.py      Telegram.send()
   state.py         NotifiedStore — the "already alerted" file
   tickets.py       pure helpers: parse, keyword match, build properties & messages
-  sync.py          run(): the orchestration (I/O is injected, so it's testable)
-main.py            CLI: --dry-run, --state-file, --verbose
-tests/             13 tests, no network
+  sync.py          run(): tickets -> Notion + Telegram (I/O injected, so it's testable)
+  equipamentos.py  run(): mark each asset Ocupado / Disponível from the open tickets
+main.py            CLI: --mode {chamados,equipamentos}, --dry-run, --state-file, --verbose
+tests/             16 tests, no network
 ```
 
 ## Run
