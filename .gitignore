@@ -1,11 +1,13 @@
-# segredos
+# secrets
 .env
 
-# estado local do script
+# local run state
 chamados_notificados.json
 
 # python
 __pycache__/
 *.pyc
+*.egg-info/
 .venv/
 venv/
+.pytest_cache/
