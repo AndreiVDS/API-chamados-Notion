@@ -1,5 +1,10 @@
 # Movidesk → Notion sync
 
+[![CI](https://github.com/AndreiVDS/API-chamados-Notion/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreiVDS/API-chamados-Notion/actions/workflows/ci.yml)
+![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![tests](https://img.shields.io/badge/tests-16_passing-6e9f18)
+![license](https://img.shields.io/badge/license-MIT-blue)
+
 A Python job that keeps a **Notion database in step with the Movidesk help-desk** and raises
 **Telegram alerts** for tickets that need attention. Built to remove manual copy-paste from a
 real IT support workflow.
